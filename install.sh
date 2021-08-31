@@ -42,7 +42,7 @@ chmod 0600 /mnt/swap
 mkswap /mnt/swap 
 swapon /mnt/swap 
 
-pacstrap /mnt base base-devel grub sudo git make curl wget htop vim net-tools ethtool openssh wireguard-tools
+pacstrap /mnt base base-devel linux linux-firmware grub sudo git make curl wget htop vim net-tools ethtool openssh wireguard-tools
 
 genfstab -U /mnt > /mnt/etc/fstab
 echo 'LANG=en_US.UTF-8' > /mnt/etc/locale.conf
