@@ -51,7 +51,7 @@ echo -e 'en_US.UTF-8 UTF-8\nru_RU.UTF-8 UTF-8' > /etc/locale.gen
 arch-chroot /mnt /bin/bash <<"EOT"
   disk=$(fdisk -l | grep '^Disk /dev/' | sort -hk 3 | head -n1 | awk '{print $2}' | tr -d ':')
   grub-install ${disk}
-  grub-mkconfig -o /boot/grub2/grub.cfg
+  grub-mkconfig -o /boot/grub/grub.cfg
   
   timedatectl set-timezone Europe/Moscow
   locale-gen
