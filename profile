@@ -17,6 +17,21 @@ export CALICO_DATASTORE_TYPE=kubernetes
 export CALICO_KUBECONFIG=~/.kube/config
 
 # alias
+pacman-alias(){
+  if [ $# -gt 0 ] && [ "$1" == "install" ] ; then
+     shift
+     pacman -S "$@"
+  elif [ $# -gt 0 ] && [ "$1" == "search" ] ; then
+     shift
+     pacman -Ss "$@"
+  else
+     echo "$@"
+     echo 'This is archlinux!' && false
+  fi
+}
+
+mem()(ps aux | awk '{print $6/1024 " MB\t\t" $11}' | sort -n)
+
 
 alias ls="ls --color"
 alias l="ls -la --color"
@@ -30,6 +45,11 @@ alias ail="ansible-inventory --list"
 alias an="ansible"
 alias anr="ansible -m reboot"
 alias lsblk="lsblk -o NAME,FSTYPE,LABEL,MOUNTPOINT,MODEL"
+alias getpass="openssl rand -base64"
+alias apt=pacman-alias
+alias apt-get=pacman-alias
+alias yum=pacman-alias
+
 # source files
 [ -r /usr/share/bash-completion/completions ] &&
   . /usr/share/bash-completion/completions/*
