@@ -82,10 +82,10 @@ arch-chroot /mnt /bin/bash <<"EOT"
   sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
   
   wget https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/profile -O /root/.bashrc
-  ln -s /root/.bashrc .bash_profile
+  ln -s /root/.bashrc /root/.bash_profile
   chmod +x .bash_profile .bashrc
   
-  wget https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/10-netowrk.conf -O /etc/sysctl.d/10-netowrk.conf 
+  wget https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/10-network.conf -O /etc/sysctl.d/10-network.conf 
   
   systemctl enable systemd-timesyncd systemd-networkd sshd
   
