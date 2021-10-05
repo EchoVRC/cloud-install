@@ -25,7 +25,7 @@ echo "Выполняю установку на диск $disk"
 
 dd if=/dev/zero of=${disk} bs=8M count=256 > /dev/null 
 
-parted $disk -s  mklabel msdos
+parted $disk -s mklabel msdos
 parted $disk -s mkpart primary 1M 512M
 parted $disk -s mkpart primary 512M 100%
 parted $disk set 1 boot on
@@ -70,7 +70,7 @@ arch-chroot /mnt /bin/bash <<"EOT"
   disk=$(fdisk -l | grep '^Disk /dev/' | sort -hk 3 | head -n1 | awk '{print $2}' | tr -d ':')
   grub-install ${disk}
   grub-mkconfig -o /boot/grub/grub.cfg
-  sed -i /boot/grub/grub.cfg 's/set timeout=[0-9]*/set timeout=0/g'
+  sed -i 's/set timeout=[0-9 ]*/set timeout=0/g' /boot/grub/grub.cfg 
   
   timedatectl set-timezone Europe/Moscow
   timedatectl set-ntp on
