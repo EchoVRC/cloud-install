@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pacman -Rdd iptables --noconfirm
-pacman -S haproxy bash-completion docker kubernetes-control-plane iptables-nft --noconfirm
+pacman -S kubeadm haproxy bash-completion docker kubernetes-control-plane iptables-nft --noconfirm
 
 curl 'https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/configs/haproxy.cfg' -o /etc/haproxy/haproxy.cfg
 curl 'https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/configs/nftables.conf' -o /etc/nftables.conf
