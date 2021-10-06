@@ -19,7 +19,7 @@ prompt_cmd () {
     PS1=""
     [[ "$cmdstatus" -ne "0" && "$cmdstatus" -ne "130" ]] && PS1="\n\[$(tput setaf 196)\]$cmdstatus "
     history -a
-    PS1="$PS1\[$timecolor\][\A]\[$white\]:\[$stagecolor\][\u@\h \[$white\]\W\[$stagecolor\]]\$ \[$nc\]"
+    PS1="$PS1\[$timecolor\][\A]\[$white\]:\[$stagecolor\][\u@\h \[$white\]\W\[$stagecolor\]]\\\$ \[$nc\]"
 }
 
 # alias

@@ -90,6 +90,7 @@ arch-chroot /mnt /bin/bash <<"EOT"
   systemctl enable systemd-timesyncd systemd-networkd sshd
   
   useradd -c lamfo -g users -G wheel lamfo
+  uname --nodename > /etc/hostname
   
   pwd
 EOT
