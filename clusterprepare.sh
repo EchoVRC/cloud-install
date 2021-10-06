@@ -15,6 +15,3 @@ fi
 
 systemctl enable kubelet boltd
 systemctl enable --now docker haproxy nftables
-
-
-
