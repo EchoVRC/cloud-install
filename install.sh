@@ -44,6 +44,11 @@ mount ${disk}1 /mnt/boot
 
 sed -i 's/#ParallelDownloads = [0-9]*/ParallelDownloads = 5/g' /etc/pacman.conf
 
+> /etc/pacman.d/mirrorlist cat << EOF
+Server = https://mirror.yandex.ru/archlinux/$repo/os/$arch
+Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch
+EOF
+
 pacstrap /mnt base base-devel linux linux-firmware grub sudo git make curl wget htop vim net-tools ethtool openssh wireguard-tools tcpdump nload 
 
 sed -i 's/#ParallelDownloads = [0-9]*/ParallelDownloads = 5/g' /mnt/etc/pacman.conf
