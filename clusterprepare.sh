@@ -1,10 +1,10 @@
 #!/bin/bash
 
 pacman -Rdd iptables --noconfirm
-pacman -S haproxy bash-completion docker kubernetes-node iptables-nft --noconfirm
+pacman -S haproxy bash-completion docker kubernetes-control-plane iptables-nft --noconfirm
 
 curl 'https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/configs/haproxy.cfg' -o /etc/haproxy/haproxy.cfg
-curl 'https://github.com/lamfo-dev/cloud-install/blob/main/configs/nftables.conf' -o /etc/nftables.conf
+curl 'https://raw.githubusercontent.com/lamfo-dev/cloud-install/main/configs/nftables.conf' -o /etc/nftables.conf
 
 ip=$(ip -4 addr show cluster.service | grep -oP "(?<=inet ).*(?=/)")
 if [[ ! -z "$ip" ]]; then
